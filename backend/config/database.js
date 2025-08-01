@@ -4,17 +4,16 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const sequelize = new Sequelize(
-  process.env.DB_NAME,       // Tên DB
-  process.env.DB_USER,       // Tên user SQL Server
-  process.env.DB_PASSWORD,   // Mật khẩu
+  process.env.DB_NAME,      
+  process.env.DB_USER,       
+  process.env.DB_PASSWORD,   
   {
-    host: process.env.DB_SERVER, // thường là 'localhost'
+    host: process.env.DB_SERVER, 
     dialect: 'mssql',
     dialectOptions: {
       options: {
-        encrypt: false,
-        trustServerCertificate: true,
-        server: process.env.DB_SERVER || 'localhost',
+        encrypt: true,               
+        trustServerCertificate: false,
       },
     },
     logging: false,

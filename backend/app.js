@@ -29,16 +29,10 @@ app.use('/api/ethnic-groups', ethnicGroupsRoutes);
 app.use('/api/infrastructure', infrastructureRoutes);
 app.use('/api/schools', shoolsRoutes);
 app.use('/api/villages', villagesRoutes);
-// Test DB Sequelize
-app.get('/test-db', async (req, res) => {
-  try {
-    await sequelize.authenticate();
-    res.json({ message: 'Kết nối DB Sequelize thành công!' });
-  } catch (error) {
-    console.error('Lỗi kết nối DB:', error);
-    res.status(500).json({ error: 'Không kết nối được DB' });
-  }
-});
+
+sequelize.authenticate()
+  .then(() => console.log('✅ Kết nối Azure SQL thành công'))
+  .catch((err) => console.error('❌ Lỗi kết nối:', err));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
