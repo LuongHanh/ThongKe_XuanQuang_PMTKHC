@@ -67,7 +67,7 @@ const HomeUser = () => {
       <Divider sx={{ my: 3 }} />
       <Paper sx={{ p: 2 , backgroundColor: 'transparent', backdropFilter: 'blur(5px)'}}>
 
-        <Section fontWeight="bold"
+        <Section
           title="I. Chỉ số tổng quan"
           headers={['Diện tích', 'Dân số', 'Tổng số dân tộc', 'Tôn giáo', 'Năm']}
           data={overview}
